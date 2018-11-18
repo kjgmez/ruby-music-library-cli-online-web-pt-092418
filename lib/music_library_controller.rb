@@ -17,7 +17,7 @@ class MusicLibraryController
       elsif input == "list genres"
         list_songs_by_genre
       elsif input == "list songs"
-        mu.list_songs
+        @music_control.list_songs
       else
         puts "please enter a valid input"
       end
