@@ -3,7 +3,7 @@ class MusicLibraryController
   attr_reader :new_import
   def initialize(path='./db/mp3s')
     @path = path
-    MusicImporter.new(path).import
+    @music_control = MusicImporter.new(path).import
   end
   def call
     input = gets
@@ -17,7 +17,7 @@ class MusicLibraryController
       elsif input == "list genres"
         list_songs_by_genre
       elsif input == "list songs"
-        list_songs.call()
+        mu.list_songs
       else
         puts "please enter a valid input"
       end
