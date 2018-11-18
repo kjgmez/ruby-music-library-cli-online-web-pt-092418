@@ -12,12 +12,12 @@ class MusicLibraryController
     while input != "exit"
       puts "What would you like to do?"
       input = gets
-      if input == "list artists"
+      if input == "list songs"
+        list_songs
+      elsif condition input == "list artists"
         list_songs_by_artist
       elsif input == "list genres"
         list_songs_by_genre
-      elsif input == "list songs"
-        list_songs
       else
         puts "please enter a valid input"
       end
