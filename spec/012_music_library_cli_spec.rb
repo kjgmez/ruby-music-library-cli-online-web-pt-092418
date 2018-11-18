@@ -4,7 +4,6 @@ describe "MusicLibraryController - CLI Commands" do
   let(:music_library_controller) { MusicLibraryController.new("./spec/fixtures/mp3s") }
 
   describe "'list songs'" do
-    binding.pry
     it "triggers #list_songs" do
       allow(music_library_controller).to receive(:gets).and_return("list songs", "exit")
 
