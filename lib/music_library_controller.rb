@@ -12,10 +12,57 @@ class MusicLibraryController
     while input != "exit"
       puts "What would you like to do?"
       input = gets
+      if input == "list artists"
+        list_songs_by_artist
+      elsif input == "list genres"
+        list_songs_by_genre
+      elsif input = "list_songs"
+        list_songs
+      else
+        puts "please enter a valid input"
+      end
     end
   end
   def list_songs
-    x = Song.all.sort_by{|song| song.name}
-    x.each.with_index(1){|song, i| puts "#{i}. #{song.artist.name} - #{song.name} - #{song.genre.name}"}
+    song = Song.all.sort_by!{|song| song.name}
+    song.each.with_index(1){|song, i| puts "#{i}. #{song.artist.name} - #{song.name} - #{song.genre.name}"}
+  end
+  def list_artists
+    artist = Artist.all.sort_by!{|artist| artist.name}
+    artist.each.with_index(1){|artist, i| puts "#{i}. #{artist.name}"}
+  end
+  def list_genres
+    genre = Genre.all.sort_by!{|genre| genre.name}
+    genre.each.with_index(1){|genre, i| puts "#{i}. #{genre.name}"}
+  end
+  def list_songs_by_artist
+    puts "Please enter the name of an artist:"
+    input = gets
+    artist = Artist.find_by_name(input)
+    if artist == nil
+          "Please enter the name of an artist:"
+    else
+      sort = artist.songs.sort_by!{|song| song.name}
+      sort.each.with_index(1){|song,i| puts "#{i}. #{song.name} - #{song.genre.name}"}
+    end
+  end
+  def list_songs_by_genre
+    puts "Please enter the name of a genre:"
+    input = gets
+    genre = Genre.find_by_name(input)
+    if genre == nil
+          "Please enter the name of a genre:"
+    else
+      sort = genre.songs.sort_by!{|genre| genre.name}
+      sort.each.with_index(1){|song,i| puts "#{i}. #{song.artist.name} - #{song.name}"}
+    end
+  end
+  def play_song
+    # puts "Which song number would you like to play?"
+    # input = Integer(gets) rescue nil
+    # if input != nil && 0 < input && input < Song.all.length
+    #   song = Song.all.sort_by!{|song| song.name}
+    #   puts "Playing #{song[input.to_i - 1].name} by #{song[input.to_i - 1].artist.name}"
+    end
   end
 end
