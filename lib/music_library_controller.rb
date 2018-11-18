@@ -58,11 +58,11 @@ class MusicLibraryController
     end
   end
   def play_song
-    # puts "Which song number would you like to play?"
-    # input = Integer(gets) rescue nil
-    # if input != nil && 0 < input && input < Song.all.length
-    #   song = Song.all.sort_by!{|song| song.name}
-    #   puts "Playing #{song[input.to_i - 1].name} by #{song[input.to_i - 1].artist.name}"
-    #end
+    puts "Which song number would you like to play?"
+    input = Integer(gets) rescue nil
+    if input != nil && 0 < input && input < Song.all.length
+      song = Song.all.sort_by!{|song| song.name}
+      puts "Playing #{song[input.to_i - 1].name} by #{song[input.to_i - 1].artist.name}"
+    end
   end
 end
