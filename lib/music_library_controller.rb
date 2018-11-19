@@ -12,7 +12,6 @@ class MusicLibraryController
     while input != "exit"
       puts "What would you like to do?"
       input = gets
-      binding.pry
       if input == "list songs"
         list_songs
       elsif input == "list artists"
