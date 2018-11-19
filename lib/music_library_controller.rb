@@ -22,6 +22,8 @@ class MusicLibraryController
         list_genres
       elsif input == "play song"
         play_song
+      else
+        nil
       end
     end
   end
