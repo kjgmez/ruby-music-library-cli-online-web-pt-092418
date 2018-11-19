@@ -22,8 +22,6 @@ class MusicLibraryController
         list_genres
       elsif input == "play song"
         play_song
-      else
-        puts "please enter a valid input"
       end
     end
   end
